@@ -1,0 +1,35 @@
+html, body{
+	height:100%;
+}
+
+.mainWell{
+
+	margin: 5% auto 0 auto;
+	height: 40%;
+	width: 30%;
+
+}
+
+.studentList{
+	padding-top: 8px;
+}
+
+.desk{
+	background: url(../assets/desk.png);
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+.classroom{
+	background: url(../assets/floor.png);
+    background-repeat: repeat;
+    height:80vh;
+}
+
+.deskContainer{
+	position: absolute;
+	width:80px;
+	height:80px;
+}

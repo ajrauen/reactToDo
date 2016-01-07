@@ -1,0 +1,28 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "",
+    "bootstrap":"",
+    "history": "^1.17.0",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5",
+	"babel":"",
+	"babel-core":"",
+	"babel-loader":"",
+	"babel-preset-es2015":"",
+	"babel-preset-react":"",
+	"react-redux":"",
+	"redux":"",
+	"redux-simple-router":"",
+	"webpack":"",
+	"webpack-dev-server":""
+  }
+}
