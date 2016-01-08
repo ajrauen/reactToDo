@@ -12,7 +12,8 @@ export class App extends React.Component{
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	    	newTodo: ""
+	    	newTodo: "",
+	    	toDos: []
 	    };
 	  }
 
@@ -27,6 +28,7 @@ export class App extends React.Component{
 
 		if (val) {
 			this.props.model.addTodo(val);
+			this.setState({})
 			this.setState({newTodo: ''});
 		}
 	
@@ -39,13 +41,13 @@ export class App extends React.Component{
 	render(){
 		return(
 		  <div className="text-center">
-			<div className="well">
+			<div className="well col-md-5 col-md-offset-3 mainWell">
 				<ToDoInput 
 					value={this.state.newTodo}
 					handleKeyDown={this.handleKeyDown.bind(this)}
 					onChange={this.onChange.bind(this)}
 				 />
-				 <ToDoList/>
+				 <ToDoList model={this.props.model}/>
 			</div>
 		  </div>
 		)

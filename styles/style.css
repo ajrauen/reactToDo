@@ -1,35 +1,37 @@
 html, body{
 	height:100%;
+	width:100%;
 }
 
 .mainWell{
 
-	margin: 5% auto 0 auto;
+	margin-top: 2%;
 	height: 40%;
-	width: 30%;
+	width: 40%;
 
 }
 
-.studentList{
-	padding-top: 8px;
+.itemLabel{
+	font-size: 1.2em;
+	padding: 0 10 0 10
 }
 
-.desk{
-	background: url(../assets/desk.png);
-    background-size: 80px 80px;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
+.toggle{
+		display: inline-block;
+    float: left;
 }
 
-.classroom{
-	background: url(../assets/floor.png);
-    background-repeat: repeat;
-    height:80vh;
+
+.itemInput{
+	padding: 10px;
+    font-size: 1.5em;
+    text-align: center;
 }
 
-.deskContainer{
-	position: absolute;
-	width:80px;
-	height:80px;
+.destroy:hover{
+		cursor: pointer
+}
+
+.destroy {
+	float: right
 }

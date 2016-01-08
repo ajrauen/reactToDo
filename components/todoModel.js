@@ -10,6 +10,14 @@ export default (function(){
 			name:name,
 			id: uuid(name)
 		})
+		return model.todos;
+	};
+
+	function removeTodo(removeTodo){
+		_.remove(model.todos,function(todo){
+			return todo.id === removeTodo.id
+		})
+		return model.todos;
 	};
 
 	function todos(name){
@@ -34,6 +42,7 @@ export default (function(){
 
 	return{
 		addTodo:addTodo,
+		removeTodo:removeTodo,
 		todos:todos
 	}
 
