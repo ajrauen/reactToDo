@@ -5,26 +5,28 @@ class toDoItem extends React.Component{
 		super(props)
 	}
 
-
-	destroy(){
-		this.props.destroy(this.props.todo)
-	}
-
 	render(){
 
 		return ( 
 	
 					<div className="form-control">
 						<input
-							className="toggle"
+							className="left"
 							type="checkbox"
 		//					checked={this.props.todo.completed}
 		//					onChange={this.props.onToggle}
 						/>
-						<label className="itemLabel" onDoubleClick={this.handleEdit}>
+						<label 
+							className={classNames({
+								itemLabel: true,
+								completed: this.props.todo.completed
+							})}
+							onDoubleClick={this.handleEdit} 
+							onClick={this.props.toggleTodo.bind(null,this.props.todo)}
+						>
 							{this.props.todo.name}
 						</label>
-						<div  className="fa fa-times destroy" onClick={this.destroy.bind(this)} />
+						<div  className="fa fa-times right" onClick={this.props.deleteTodo.bind(null,this.props.todo)} />
 					</div>
 					
 		)

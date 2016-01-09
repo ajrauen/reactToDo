@@ -6,26 +6,17 @@ import TodoItem from './toDoItem.js'
 class todoList extends React.Component{
 	constructor(props){
 		super(props)
-		this.state= {
-			todos : this.props.model.todos()
-		}
 	}
-
-	deleteTodo(todo){
-		this.setState({
-			todos: this.props.model.removeTodo(todo)
-		})
-	}
-
 
 	render(){
 
-		let listItems  = this.state.todos.map(function (todo) {
+		let listItems  = this.props.todos.map(function (todo) {
 				return (
 					<TodoItem 
 					key={todo.id} 
 					todo={todo}
-					destroy={this.deleteTodo.bind(this)}
+					toggleTodo={this.props.toggleTodo.bind(this)}
+					deleteTodo={this.props.deleteTodo.bind(this)}
 
 					/>		
 				)

@@ -8,6 +8,7 @@ export default (function(){
 	function addTodo(name){
 		model.todos.push({
 			name:name,
+			completed:false,
 			id: uuid(name)
 		})
 		return model.todos;
@@ -17,6 +18,13 @@ export default (function(){
 		_.remove(model.todos,function(todo){
 			return todo.id === removeTodo.id
 		})
+		return model.todos;
+	};
+
+	function update(todo){
+		var index = _.indexOf(model.todos, _.find(model.todos, {id: todo.id}));
+
+		model.todos.splice(index, 1, todo);
 		return model.todos;
 	};
 
@@ -42,6 +50,7 @@ export default (function(){
 
 	return{
 		addTodo:addTodo,
+		update:update,
 		removeTodo:removeTodo,
 		todos:todos
 	}

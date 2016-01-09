@@ -5,6 +5,7 @@ import ToDoInput from './components/todoInput.js'
 import ToDoList from './components/todoList.js'
 
 import ToDoModel from './components/todoModel.js'
+import Filter from './components/filter.js'
 
 
 export class App extends React.Component{
@@ -13,7 +14,7 @@ export class App extends React.Component{
 	    super(props);
 	    this.state = {
 	    	newTodo: "",
-	    	toDos: []
+	    	todos: []
 	    };
 	  }
 
@@ -27,15 +28,26 @@ export class App extends React.Component{
 		var val = this.state.newTodo.trim();
 
 		if (val) {
-			this.props.model.addTodo(val);
-			this.setState({})
+			this.setState({todos: this.props.model.addTodo(val)});
 			this.setState({newTodo: ''});
 		}
-	
 	}
 
 	onChange(evt){
 		this.setState({newTodo:evt.target.value})
+	}
+
+	deleteTodo(todo){
+		this.setState({
+			todos: this.props.model.removeTodo(todo)
+		})
+	}
+
+	toggleTodo(todo){
+		todo.completed = !todo.completed
+		this.setState({
+			todos: this.props.model.update(todo)
+		})
 	}
 
 	render(){
@@ -47,7 +59,12 @@ export class App extends React.Component{
 					handleKeyDown={this.handleKeyDown.bind(this)}
 					onChange={this.onChange.bind(this)}
 				 />
-				 <ToDoList model={this.props.model}/>
+				 <ToDoList 
+				 	deleteTodo={this.deleteTodo.bind(this)}
+				 	toggleTodo={this.toggleTodo.bind(this)}
+				 	todos={this.state.todos}
+				 />
+				 <Filter todos={this.state.todos}/>
 			</div>
 		  </div>
 		)
