@@ -17,7 +17,7 @@ class todoList extends React.Component{
 					todo={todo}
 					toggleTodo={this.props.toggleTodo.bind(this)}
 					deleteTodo={this.props.deleteTodo.bind(this)}
-
+					completeTodo={this.props.completeTodo.bind(this)}
 					/>		
 				)
 			}.bind(this))

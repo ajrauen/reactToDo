@@ -6,7 +6,7 @@ class Filter extends React.Component{
 		var i = this.props.todos.length,
 			c = 0;
 		while(i>0){
-			if(this.props.todos[i-1].completed){
+			if(!this.props.todos[i-1].completed){
 				c++
 			}
 			i--
@@ -20,10 +20,10 @@ class Filter extends React.Component{
 		return ( 
 			<div className="form-control">
 				<label className="left">{c} items left</label>
-				<div>
-					<span>All</span>
-					<span>Active</span>
-					<span>Complete</span>
+				<div className="filterContainer" onClick={this.props.filter}>
+					<span id="f_all" className="filter">All</span>
+					<span id="f_active" className="filter">Active</span>
+					<span id="f_complete" className="filter">Completed</span>
 				</div>
 
 			</div>

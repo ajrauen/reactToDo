@@ -30,11 +30,26 @@ html, body{
 }
 
 .destroy:hover{
-		cursor: pointer
+	cursor: pointer
 }
 
+label.active{
+	text-decoration: line-through;
+}
 
+.completed{
+	color: #B5ADAD;
+}
 
-label.completed{
-	    text-decoration: line-through;
+.filter{
+	padding-right: 15px
+}
+
+.filter:hover{
+    font-weight: bold;
+    cursor: pointer
+}
+
+.filterContainer{
+	   margin-right: 10%;
 }

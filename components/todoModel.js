@@ -9,6 +9,7 @@ export default (function(){
 		model.todos.push({
 			name:name,
 			completed:false,
+			active:true,
 			id: uuid(name)
 		})
 		return model.todos;
@@ -32,6 +33,29 @@ export default (function(){
 		return model.todos;
 	};
 
+	function filter(type){
+		switch(type){
+			case "ALL":{
+				return model.todos
+				break
+			}
+			case "ACTIVE":{		
+				return _.filter( model.todos,todo => todo.active);
+				break
+			}
+			case "COMPLETE":{
+				return _.filter( model.todos,todo => todo.completed);
+				break
+			}
+			default:{
+				return model.todos
+			}
+
+		}
+
+
+	}
+
     function uuid() {
 		var i, random;
 		var uuid = '';
@@ -52,7 +76,8 @@ export default (function(){
 		addTodo:addTodo,
 		update:update,
 		removeTodo:removeTodo,
-		todos:todos
+		todos:todos,
+		filter:filter
 	}
 
 })()

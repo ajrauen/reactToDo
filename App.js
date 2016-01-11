@@ -43,11 +43,36 @@ export class App extends React.Component{
 		})
 	}
 
-	toggleTodo(todo){
+	completeTodo(todo){
 		todo.completed = !todo.completed
 		this.setState({
 			todos: this.props.model.update(todo)
+		})	
+	}
+
+	toggleTodo(todo){
+		todo.active = !todo.active
+		this.setState({
+			todos: this.props.model.update(todo)
 		})
+	}
+
+	filter(evt){
+		switch(evt.target.id){
+			case "f_all":{
+				this.setState({todos: this.props.model.filter('ALL')});		
+				break
+			}
+			case "f_active":{
+				this.setState({todos: this.props.model.filter('ACTIVE')});		
+				break
+			}
+			case "f_complete":{
+				this.setState({todos: this.props.model.filter('COMPLETE')});		
+				break
+			}
+
+		}
 	}
 
 	render(){
@@ -62,9 +87,10 @@ export class App extends React.Component{
 				 <ToDoList 
 				 	deleteTodo={this.deleteTodo.bind(this)}
 				 	toggleTodo={this.toggleTodo.bind(this)}
-				 	todos={this.state.todos}
+					completeTodo={this.completeTodo.bind(this)}
+	 				todos={this.state.todos}
 				 />
-				 <Filter todos={this.state.todos}/>
+				 <Filter todos={this.state.todos} filter={this.filter.bind(this)}/>
 			</div>
 		  </div>
 		)
